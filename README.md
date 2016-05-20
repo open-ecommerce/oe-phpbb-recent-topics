@@ -1,3 +1,15 @@
+This plugin was fully developed by linickx, we only changed a bit of sql to make it compatible with phpbb 3.1
+
+
+
+
+
+
+
+
+
+
+
 === Plugin Name ===
 Contributors: linickx
 Donate link: http://www.linickx.com/donate
@@ -31,7 +43,7 @@ Do you have a phpBB forum, do you want to drag your blog readers into your forum
 		* The Date Formatting, i.e. "d/M/y - g:i a" similar to the WordPress "General Settings"
 
 1. Hit 'Update Options"
-1. 	To output the list of topics in a page or post... 
+1. 	To output the list of topics in a page or post...
 
 		* create a new page/post, type `{phpbb_recent_topics}` , hit 'Publish' or 'Create new page'
 	To output the list of topics in your theme sidebar using the widget…
@@ -46,7 +58,7 @@ Do you have a phpBB forum, do you want to drag your blog readers into your forum
 		`<?php
 	        if (function_exists('phpbb_topics')) {
 				phpbb_topics();
-			} 
+			}
 		?>`
 
 == Frequently Asked Questions ==
@@ -61,7 +73,7 @@ Yes ! In the Wordpress menu 'Options' -> 'phpBB Recent Topics', set 'The number 
 	`<?php
 	    if (function_exists('phpbb_topics')) {
 			phpbb_topics(3);
-		} 
+		}
 	?>`
 
 = Can I exclude a certain forum from the list ? =
@@ -121,7 +133,7 @@ Yes, use the Insecure Connectivity method, and change the host to the IP address
 * Code Clean Up - Variables
 * Tool Tip Feature Improvement
 ** Custom Size
-** Strip Tags :) 
+** Strip Tags :)
 * Uninstall compatability
 * Admin UI Improvements
 
@@ -226,7 +238,7 @@ function phpbb_topics_callback($phpbbdb, $wpdb, $lnx_PRT_options, $topic) {
 `
 
 The following variables can be used within your callback function:
-* $wpdb 
+* $wpdb
 ** If using Secure Connectivity this is a connection to your PHPBB Database
 ** If using Insecure Connectivity this is the standard WordPress Database
 * $phpbbdb

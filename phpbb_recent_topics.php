@@ -1,6 +1,6 @@
 <?php
 	/*
-	 Plugin Name: oe_phpbb_recent_topics
+	 Plugin Name: oe phpbb recent topics
 	 Plugin URI: http://www.linickx.com/3311/phpbb_recent_topics-version-0-7 some change by oe
 	 Description: This plugin grabs your recent phpBB topics for you to display in wordpress. changes a line of code by oe for phpBB 3.1 compatibility
 	 Version: 0.7.1
@@ -10,14 +10,14 @@
 	 */
 
 	# before we start, check for upgrades.
-	require_once(WP_PLUGIN_DIR . "/phpbb-recent-topics/upgrade.php");
+	//require_once(WP_PLUGIN_DIR . "/phpbb-recent-topics/upgrade.php");
 
 	# Load Plugin Options from WP DB
 	$lnx_PRT_options = get_option('lnx_PRT_options');
 
 	# Only run admin code,if in admin screen.
 	if (is_admin()) {
-		include_once(WP_PLUGIN_DIR . "/phpbb-recent-topics/admin.php");
+		include_once(WP_PLUGIN_DIR . "/oe-phpbb-recent-topics/admin.php");
 	}
 
 	# Go!
@@ -34,7 +34,7 @@
 
 		function DisplayPRTMagicFilter($content) {  // Replace magic text with list of topics
 
-			return str_replace('{phpbb_recent_topics}', DisplayPRT(), $content);
+			return str_replace('{oe-phpbb_recent_topics}', DisplayPRT(), $content);
 		}
 
 
@@ -42,7 +42,7 @@
 
 			ob_start(); // Start the cache
 
-			require(WP_PLUGIN_DIR . "/phpbb-recent-topics/display/display.php"); // run my code.
+			require(WP_PLUGIN_DIR . "/oe-phpbb-recent-topics/display/display.php"); // run my code.
 
 			$PRT_html = ob_get_contents();
 
@@ -54,7 +54,7 @@
 		# Legacy function for side bar
 		function phpbb_topics($LIMIT = "") {
 
-			require(WP_PLUGIN_DIR . "/phpbb-recent-topics/display/display.php");
+			require(WP_PLUGIN_DIR . "/oe-phpbb-recent-topics/display/display.php");
 		}
 
 		# New sidebar widget (options)
@@ -90,7 +90,7 @@
 
 			echo $before_widget, $before_title, $title, $after_title;
 
-			require(WP_PLUGIN_DIR . "/phpbb-recent-topics/display/display.php");
+			require(WP_PLUGIN_DIR . "/oe-phpbb-recent-topics/display/display.php");
 
 			echo $after_widget;
 		}

@@ -2,14 +2,6 @@ This plugin was fully developed by linickx, we only changed a bit of sql to make
 
 
 
-
-
-
-
-
-
-
-
 === Plugin Name ===
 Contributors: linickx
 Donate link: http://www.linickx.com/donate

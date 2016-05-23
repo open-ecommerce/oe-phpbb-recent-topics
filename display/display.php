@@ -87,6 +87,12 @@
 		{
 
 			echo '<li class="prt_li" >';
+			echo '<div class="row collapse">';
+			echo '<div class="forum-chat-icon small-2 column">';
+			echo '<img class="topic-icon" src="'. get_template_directory_uri() . '/assets/images/icons/forum_read_hd.png'  .'">';
+			echo '</div>';
+
+			echo '<div class="topic-text  small-10 column">';
 			echo "<a ";
 
 			if ($lnx_PRT_options['prt_phpbb_newwin'] == "1") { echo "target=\"_blank\""; } // Enable open in new window feature.
@@ -114,12 +120,11 @@
 					$post = $wpdb->get_row($sql_query);
 				}
 
-	        	$post->post_text = preg_replace("(\[.+?\])is",'',$post->post_text); // strip BBcodes from post
+	      $post->post_text = preg_replace("(\[.+?\])is",'',$post->post_text); // strip BBcodes from post
 				$post->post_text = strip_tags($post->post_text); // Strip HTML / PHP Tags from post.
 				$post->post_text = substr($post->post_text,0,$lnx_PRT_options[prt_phpbb_tooltipsize])."..."; //limit the quote from the body to $prt_phpbb_tooltipsize chars
 
 				echo " title='" . $post->post_text . "' ";
-
 			}
 			echo ">";
 
@@ -128,12 +133,16 @@
 			} else {
 				echo "$topic->topic_title";
 			}
+
 			echo "</a>";
+
+
+			echo "<br />\n";
+			echo "<small><i>by " .$topic->topic_last_poster_name . "</i></small> the ";
 
 			if ($lnx_PRT_options['prt_phpbb_date'] != "") {
 
 				$offset = 3600 * get_option('gmt_offset');
-				echo "<br />\n";
 
 				if ($lnx_PRT_options['prt_phpbb_latest_topic'] == "1") {
 					$phpbb_time = $topic->topic_last_post_time + $offset;
@@ -149,6 +158,8 @@
 				phpbb_topics_callback($phpbbdb, $wpdb, $lnx_PRT_options, $topic);
 			}
 
+			echo "</div>";
+			echo "</div>";
 			echo "</li>";
 		}
 

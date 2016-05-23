@@ -144,7 +144,7 @@
 
 
 			echo "<br />\n";
-			echo "<small><i>by " .$topic->topic_last_poster_name . "</i></small> the ";
+			echo "<small><i>by " .$topic->topic_last_poster_name . "</i></small>";
 
 			if ($lnx_PRT_options['prt_phpbb_date'] != "") {
 
@@ -157,7 +157,7 @@
 				}
 
 				$phpbb_time = date( 'Y-m-d H:i:s', $phpbb_time );
-				echo "<small><i>" . mysql2date("$lnx_PRT_options[prt_phpbb_date]", $phpbb_time) . "</i></small>\n";
+				echo "<small><i> on " . mysql2date("$lnx_PRT_options[prt_phpbb_date]", $phpbb_time) . "</i></small>\n";
 			}
 
 			if (function_exists('phpbb_topics_callback')) {

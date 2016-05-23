@@ -83,10 +83,16 @@
 		echo '<ul class="prt_ul" >';
 
 		# Loop away baby !
+
+		$lastkey = end($results);
+		$last_class = "";
 		foreach ($results as $topic)
 		{
 
-			echo '<li class="prt_li" >';
+			//echo $lastkey;
+
+			if ($lastkey === $topic) {	$last_class = " last-item"; }
+			echo '<li class="prt_li' . $last_class . '" >';
 			echo '<div class="row collapse">';
 			echo '<div class="forum-chat-icon small-2 column">';
 			echo '<img class="topic-icon" src="'. get_template_directory_uri() . '/assets/images/icons/forum_read_hd.png'  .'">';
